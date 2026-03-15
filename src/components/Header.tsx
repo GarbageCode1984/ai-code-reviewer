@@ -1,9 +1,10 @@
 type Props = {
     language: string;
     setLanguage: (value: string) => void;
+    onReview: () => void;
 };
 
-const Header = ({ language, setLanguage }: Props) => {
+const Header = ({ language, setLanguage, onReview }: Props) => {
     return (
         <header className="border-b border-slate-800 px-6 py-4">
             <h1 className="text-lg font-semibold mb-3">AI Code Reviewer</h1>
@@ -19,7 +20,10 @@ const Header = ({ language, setLanguage }: Props) => {
                     <option value="python">Python</option>
                 </select>
 
-                <button className="bg-blue-600 hover:bg-blue-500 px-4 py-1.5 rounded text-sm font-medium">
+                <button
+                    onClick={onReview}
+                    className="bg-blue-600 hover:bg-blue-500 px-4 py-1.5 rounded text-sm font-medium"
+                >
                     Review Code
                 </button>
             </div>
