@@ -64,7 +64,7 @@ ollama pull mistral
 
 ---
 
-#### 🔴 고사양 (GPU 권장)
+#### 🔴 고사양
 
 ```bash
 ollama pull llama3
