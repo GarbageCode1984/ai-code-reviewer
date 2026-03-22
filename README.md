@@ -39,7 +39,7 @@ https://ollama.com
 
 사용 환경(GPU / RAM)에 따라 적절한 모델을 선택해야 합니다.
 
-#### 🟢 가벼운 환경 (저사양 / CPU 사용)
+#### 🟢 가벼운 환경 (저사양)
 
 ```bash
 ollama pull qwen2.5-coder:7b
