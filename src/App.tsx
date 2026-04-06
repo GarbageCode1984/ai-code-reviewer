@@ -1,35 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EditorPanel from "./components/editor/EditorPanel";
 import Header from "./components/common/Header";
 import ReviewPanel from "./components/review/ReviewPanel";
 import { PanelGroup, Panel, PanelResizeHandle } from "react-resizable-panels";
 import useReview from "./hooks/useReview";
-import { getModels } from "./services/ollama";
+import useModels from "./hooks/useModels";
 
 const App = () => {
     const [code, setCode] = useState("");
     const [language, setLanguage] = useState("javascript");
-    const [models, setModels] = useState<string[]>([]);
-    const [model, setModel] = useState("");
 
     const { review, loading, runReview } = useReview();
-
-    useEffect(() => {
-        const loadModels = async () => {
-            try {
-                const list = await getModels();
-                setModels(list);
-
-                if (list.length > 0) {
-                    setModel(list[0]);
-                }
-            } catch {
-                console.error("모델 목록 가져오기 실패");
-            }
-        };
-
-        loadModels();
-    }, []);
+    const { models, model, setModel } = useModels();
 
     return (
         <div className="h-screen bg-slate-950 text-white flex flex-col">
